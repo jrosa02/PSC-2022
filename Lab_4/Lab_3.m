@@ -10,13 +10,18 @@ w0 = 2*pi*f0;	% pulsacja
 BND = [t1,t2] + offset; 
 x = triangularPulse(t1,0,t2,t-offset)-0.5;
 
+
+%Zespolony fouriera
 NT = 15;
 X=[];
 ind = -NT : NT;
 for n = ind
     Xn = (1/T0)*int(x*exp(-1i*w0*n*t),t,BND);
+    %Xn to współczynnik
     X(n + NT + 1) = Xn;
 end									
+%end
+
 
 NT = 0:15;
 a=[];
